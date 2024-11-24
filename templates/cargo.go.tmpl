@@ -1,0 +1,24 @@
+item(FEAT_CARGOS, {{.Id}}) {
+    number: {{.Id}};
+    type_name: string({{.Type_name}});
+    unit_name: string({{.Unit_name}});
+    units_of_cargo: string({{.Units_of_cargo}});
+    items_of_cargo: string({{.Items_of_cargo}});
+    type_abbreviation: string({{.Type_abbreviation}});
+    sprite: string({{.Sprite}});
+    weight: {{.Weight}};
+    penalty_lowerbound: {{.Penalty_lowerbound}};
+    single_penalty_length: {{.Single_penalty_length}};
+    price_factor: {{.Price_factor}};
+    station_list_colour: {{.Station_list_colour}};
+    cargo_payment_list_colour: {{.Cargo_payment_list_colour}};
+    is_freight: {{if .Is_freight}}1{{else}}0{{end}};
+    cargo_classes: {{if .Cargo_classes.IsBitmask}}{{(index .Cargo_classes 0)}}{{else}}bitmask({{range $i, $el := .Cargo_classes}}{{if $i}},{{end}}{{$el}}{{end}}){{end}};
+    {{/*  cargo_label: {{.Cargo_label}}
+    town_growth_effect: {{.Town_growth_effect}}
+    town_growth_multiplier: {{.Town_growth_multiplier}};
+    callback_flags: {{.Callback_flags}}; 
+    capacity_multiplier: {{.Capacity_multiplier}};
+    town_production_effect: {{.Town_production_effect}};
+    town_production_multiplier: {{.Town_production_multiplier}}; */}}
+}
